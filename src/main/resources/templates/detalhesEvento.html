@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org"
+	  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+	<head>
+		<title>AQ COMUNICA</title>
+		<!--Import Google Icon Font-->
+      	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+      	<!--Import materialize.css-->
+      	<link type="text/css" rel="stylesheet" href="materialize/css/materialize.min.css"  media="screen,projection"/>
+
+      	<!--Let browser know website is optimized for mobile-->
+      	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+      	<meta charset='utf-8'>
+	</head>
+	<body>
+			
+		<div class="navbar-fixed">
+			<nav class="teal lighten-2">
+			    <div class="nav-wrapper">
+			      <a href="/" class="brand-logo"><i class="material-icons center">event</i>IFMS Aqui Comunica</a>
+			      <ul id="nav-mobile" class="right hide-on-med-and-down">
+			        <li><a href="/">Lista de Eventos</a></li>
+			        <li><a >Login</a></li>
+			        <li><a href="/cadastrarUsuario">Ã‰ novo aqui? Cadastre-se</a></li>
+			      </ul>
+			    </div>
+			  </nav>
+		</div>
+		
+		<div th:each="evento : ${evento}" class="container">
+			<div class="row">
+			    <div class="col s12 m6">
+			      <div class="card blue-grey lighten-4">
+			        <div class="card-content">
+			          <span class="card-title" th:text="${evento.nome}"></span>
+			          <p><span th:text="${evento.descricao}"></span><br><br></p>
+			          <p>Data: <span th:text="${evento.data}"></span></p>
+			          <p>Local: <span th:text="${evento.local}"></span></p>
+			          <p>Inicia as: <span th:text="${evento.horario_inicio}"></span></p>
+			          <p>Termina as: <span th:text="${evento.horario_fim}"></span></p>
+			          <p>Inscrições até: <span th:text="${evento.limite}"></span></p>
+			          <p>To aqui!!!</p>
+			          <p class="right-align indigo-text text-darken-4">Quantidade de vagas: <span th:text="${evento.numero_vagas}"></span></p>
+			        </div>
+			        <div class="card-action center-align">
+			          <a class="waves-effect waves-light btn-large" href="#">INSCREVER-SE</a>
+			        </div>
+			      </div>
+			    </div>
+			</div>
+		</div>
+																		<!-- FAZER CÃ“DIGO PARA EXIBIR INFORMAÃ‡Ã•ES DE CONTATO DOS EVENTOS SE HOUVER -->
+		<div th:each="evento : ${evento}" class="container" >
+			<div class="row">
+				<h3><span th:text="${evento.nome}"></span></h3>
+				<p>Data: <span th:text=${evento.data}></span></p>
+				<p>Local: <span th:text=${evento.local}></span></p>
+				<p>InÃ­cio: <span th:text=${evento.horario_inicio}></span></p>
+				<p>TÃ©rmino: <span th:text=${evento.horario_fim}></span></p>
+				<p>DescriÃ§Ã£o: <span th:text=${evento.descricao}></span></p>
+				<p>Para mais informaÃ§oes falar com: <span th:text=${evento.nome_contato}></span></p>
+				<p>NÃºmero para contato: <span th:text=${evento.numero_contato}></span></p>
+				<p>Vagas restantes: <span th:text=${evento.numero_vagas}></span></p>
+			</div>
+		</div>
+																		<!-- RETIRAR ESTE CÃ“DIGO DE EXIBIÃ‡ÃƒO DOS DETALHES DE EVENTOS ACIMA -->
+		
+		
+		<!--JavaScript at end of body for optimized loading-->
+      <script type="text/javascript" src="materialize/js/materialize.min.js"></script>
+	</body>
+</html>
